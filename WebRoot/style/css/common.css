@@ -1,0 +1,20 @@
+
+/*页面标题*/
+#page_title {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 20px 0px 20px 0px;
+}
+/*路标菜单*/
+.lubiaoMenu{
+	margin-top: 20px;
+}
+/*发新帖按钮*/
+.btn_AddTopic {
+	margin-left: 100px;
+}
+/*分页菜单*/
+.pagingMenu {
+	margin-top: 10px;
+	margin-left: 20px;
+}

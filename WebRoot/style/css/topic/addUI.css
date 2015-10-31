@@ -1,0 +1,43 @@
+body {
+	background-color: #F2F2F2;
+}
+
+/*列表*/
+table {
+	background-color: #FFF;
+	width: 95%;
+}
+
+tr {
+	text-align: center;
+}
+
+/*列表标题*/
+.td_title {
+	background-color: #565656;
+	color: white;
+	width: 10%;
+}
+
+/*帖子主题、帖子、内容*/
+#replyContent,.td_content {
+	width: 80%;
+	height: 30px;
+	line-height: 20px;
+	font-size: 20px;
+	
+	float: left;
+	margin-left:1px;
+	padding-left: 10px;
+}
+/*帖子主题*/
+#topicTitle{
+	background-color: #F2F2F2;
+	color: gray;
+}
+#replyContent{
+	height: 230px;
+}
+td {
+	height: 45px;
+}

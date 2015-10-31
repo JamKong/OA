@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 开发模式，可以不需要重新启动服务器就能自动加载 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 把扩展名配置为action!也就是说请求URL的后缀只能是 ".action"-->
+	<constant name="struts.action.extension" value="action"></constant>
+	<!-- 把主题配置成simple -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	
+	<package name="user" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="login" class="cn.czk.oa.interceptor.LoginInterceptor"></interceptor>
+			<interceptor-stack name="defaultStack">	<!-- 重写了defaultStack -->
+				<interceptor-ref name="login"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="defaultStack"></default-interceptor-ref>
+		<!-- 全局结果 -->
+		<global-results>
+			<result name="loginUI">loginUI.jsp</result>
+			<result name="notPrivilege">errorUI.jsp</result>
+		</global-results>
+		
+		<!-- 用户 -->
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="toList" type="redirectAction">user_list.action</result>
+			<result name="addUI">WEB-INF/jsp/userAction/addUI.jsp</result>
+			<result name="updateUI">WEB-INF/jsp/userAction/updateUI.jsp</result> 
+			<result name="list">WEB-INF/jsp/userAction/list.jsp</result>
+			<result name="index">index.jsp</result>
+			<result name="loginUI">loginUI.jsp</result>
+			<result name="errorUI">errorUI.jsp</result>
+		</action>
+		<!-- 角色 -->
+		<action name="role_*" class="roleAction" method="{1}">
+			<result name="toList" type="redirectAction">role_list.action</result>
+			<result name="addUI">WEB-INF/jsp/roleAction/addUI.jsp</result>
+			<result name="updateUI">WEB-INF/jsp/roleAction/updateUI.jsp</result>
+			<result name="list">WEB-INF/jsp/roleAction/list.jsp</result>
+			<result name="setPrivilegeUI">WEB-INF/jsp/roleAction/setPrivilegeUI.jsp</result>
+		</action>
+		<!-- 部门 -->
+		<action name="department_*" class="departmentAction" method="{1}">
+			<result name="toList" type="redirectAction">
+				<param name="actionName">department_list.action</param>
+				<param name="parentId">${parentId}</param>
+			</result>
+			<result name="addUI">WEB-INF/jsp/departmentAction/addUI.jsp</result>
+			<result name="updateUI">WEB-INF/jsp/departmentAction/updateUI.jsp</result>
+			<result name="list">WEB-INF/jsp/departmentAction/list.jsp</result>
+		</action>
+		<!-- 首页 -->
+		<action name="home_*" class="homeAction" method="{1}">
+			<result name="{1}">WEB-INF/jsp/homeAction/{1}.jsp</result>
+		</action>
+		 
+		<!-- 论坛管理 -->
+		<action name="forumManage_*" class="forumManageAction" method="{1}">
+			<result name="toList" type="redirectAction">forumManage_list.action</result>
+			<result name="addUI">WEB-INF/jsp/forumManageAction/addUI.jsp</result>
+			<result name="updateUI">WEB-INF/jsp/forumManageAction/updateUI.jsp</result>
+			<result name="list">WEB-INF/jsp/forumManageAction/list.jsp</result>
+		</action>
+		<!-- 论坛 -->
+		<action name="forum_*" class="forumAction" method="{1}">
+			<result name="list">WEB-INF/jsp/forumAction/list.jsp</result>
+			<result name="show">WEB-INF/jsp/forumAction/show.jsp</result>
+		</action>
+		
+		<!-- 主题 -->
+		<action name="topic_*" class="topicAction" method="{1}">
+			<result name="show">WEB-INF/jsp/topicAction/show.jsp</result>
+			<result name="addUI">WEB-INF/jsp/topicAction/addUI.jsp</result>
+			<result name="editUI">WEB-INF/jsp/topicAction/editUI.jsp</result>
+			<result name="toShow" type="redirectAction">topic_show?model.id=${model.id}</result>
+			<result name="toForumShow" type="redirectAction">forum_show?forumId=${forum.id}</result>
+		</action>
+		
+		<!-- 回复 -->
+		<action name="reply_*" class="replyAction" method="{1}">
+			<result name="addUI">WEB-INF/jsp/replyAction/addUI.jsp</result>
+			<result name="updateUI">WEB-INF/jsp/replyAction/updateUI.jsp</result>
+			<result name="toTopicShow" type="redirectAction">topic_show?model.id=${model.topic.id}</result>
+		</action>
+	</package>
+	
+</struts>

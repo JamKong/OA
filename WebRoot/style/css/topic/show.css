@@ -1,0 +1,71 @@
+/*主题标题*/
+.topic_title {
+	float: left;
+	margin: 15px 0px 0px 20px;
+}
+
+/*主题的工具栏*/
+.topic_edit_menu {
+	float: right;
+	margin-right: 20px;
+	margin-top: 15px;
+}
+
+/*回复*/
+.reply {
+	border-top: 2px solid gray;
+}
+
+/*头像*/
+.touXiang {
+	background-color: #F6F6F4;
+	height: 100%;
+}
+/*主题信息或回复信息*/
+.info {
+	/*min-height: 150px;*/
+	width: 98%;
+	height: 100%;
+	margin-left: 10px;
+}
+
+.top{
+	width:100%;
+	height: 37px;	/*固定高度*/
+}
+/*主题标题或回复标题*/
+.top_title {
+	float: left;
+	margin-top: 5px;
+}
+
+/*主题内容*/
+.middle {
+	text-align: left;
+	width: 100%;
+	/*height: 60%;*/
+	min-height: 130px;
+	min-width: 853px;
+}
+
+/*楼数和发表时间*/
+.bottom {
+	clear: both;
+	float: left;
+	margin-top: 20px;
+}
+/*楼数*/
+.louShu {
+	color: red;
+}
+/*发表时间*/
+.postTime {
+	color: gray;
+	font-size: 14px;
+}
+
+/*主题编辑菜单*/
+.topic_edit_menu {
+	float: right;
+	margin: 5px 5px 10px 0px;
+}

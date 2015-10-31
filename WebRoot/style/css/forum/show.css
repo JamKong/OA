@@ -1,0 +1,16 @@
+/*主题发表时间*/
+.topic_postTime {
+	color: gray;
+	font-size: 14px;
+}
+
+/*条件查询菜单*/
+.searchMenu {
+	width: 95%;
+	background-color: #565656;
+}
+
+/*条件查询菜单的下拉菜单*/
+.searchMenu select {
+	margin-left: 20px;
+}

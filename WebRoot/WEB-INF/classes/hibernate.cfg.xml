@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<!-- 设置数据库驱动 
+		<property name="connection.driver_class">com.mysql.jdbc.driver</property>-->
+	<!-- 设置数据库链接地址 
+		<property name="connection.url">jdbc:mysql://localhost:3306/oa</property>-->
+	<!-- 设置数据库账户 
+		<property name="connection.username">root</property>-->
+	<!-- 设置数据库密码 
+		<property name="connection.password"></property>-->
+	<!-- =============================================== -->
+	<!-- 其它配置 -->
+	<!-- 设置数据库方言 -->
+	<property name="connection.dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<mapping resource="cn/czk/oa/domain/Department.hbm.xml" />
+	<mapping resource="cn/czk/oa/domain/Role.hbm.xml" />
+	<mapping resource="cn/czk/oa/domain/User.hbm.xml" />
+	<mapping resource="cn/czk/oa/domain/Privilege.hbm.xml" />
+	<mapping resource="cn/czk/oa/domain/Forum.hbm.xml" />
+	<mapping resource="cn/czk/oa/domain/Reply.hbm.xml" />
+	<mapping resource="cn/czk/oa/domain/Topic.hbm.xml" />
+
+</session-factory>
+
+</hibernate-configuration>
